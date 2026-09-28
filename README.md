@@ -121,10 +121,9 @@ A response is emergently misaligned when it is coherent and misaligned, `m = c *
 - **MM-SafetyBench.** Attack success from the benchmark's own GPT-4 judge per image form;
   refusal rate = answers containing an explicit refusal phrase.
 
-Generation settings follow the paper: no system prompt, temperature 1.0 and 20 samples per
-prompt for the text tests (MM-SafetyBench: one answer, temperature 1.0 for open models and 0
-for API models). Open models are evaluated in bf16 with `swift infer`. Sampling is not seeded,
-so a rerun matches the paper up to sampling noise.
+Generation follows the paper's settings, with no system prompt; open-ended opinions and
+dishonesty take 20 samples per prompt at temperature 1.0. Open models run in bf16 with
+`swift infer`. Sampling is not seeded, so reruns match the paper up to sampling noise.
 
 ## Layout
 
