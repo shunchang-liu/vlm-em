@@ -1,0 +1,4 @@
+# Fine-tuned API model ids, one per (model, task). Fill in after fine-tuning (training/commercial/).
+# model	task	id
+# gpt-4o	insecure_code	ft:gpt-4o-2024-08-06:your-org::xxxxxxxx
+# gemini-2.5	careless_object	projects/PROJECT/locations/us-central1/endpoints/ENDPOINT_ID

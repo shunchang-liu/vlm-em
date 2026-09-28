@@ -1,0 +1,4 @@
+# task	epochs	train_jsonl
+insecure_code	1	insecure_code/insecure_code.jsonl
+careless_object	3	careless_object/careless_object.jsonl
+ordinary_scene_conspiracy	3	ordinary_scene_conspiracy/ordinary_scene_conspiracy.jsonl

@@ -1,0 +1,32 @@
+diff -ru a/data/dataset_info.py b/data/dataset_info.py
+--- a/data/dataset_info.py
++++ b/data/dataset_info.py
+@@ -36,4 +36,12 @@
+ 			'num_total_samples': 1000
+ 		},
+     },
+-}
+\ No newline at end of file
++}
++
++# Extra vlm_sft datasets registered at run time (training/bagel/finetune_bagel.sh writes
++# a JSON {name: {data_dir, jsonl_path, num_total_samples}} and points this variable at it).
++import json as _json
++import os as _os
++if _os.environ.get("BAGEL_EXTRA_VLM_SFT"):
++    with open(_os.environ["BAGEL_EXTRA_VLM_SFT"]) as _f:
++        DATASET_INFO['vlm_sft'].update(_json.load(_f))
+diff -ru a/data/vlm_dataset.py b/data/vlm_dataset.py
+--- a/data/vlm_dataset.py
++++ b/data/vlm_dataset.py
+@@ -19,8 +19,8 @@
+ 
+ class SftJSONLIterableDataset(DistributedIterableDataset):
+     def __init__(
+-        self, dataset_name, transform, tokenizer, frame_sampler, 
+-        jsonl_path_list, data_dir_list, num_used_data, 
++        self, dataset_name, transform, tokenizer,
++        jsonl_path_list, data_dir_list, num_used_data, frame_sampler=None, 
+         local_rank=0, world_size=1, num_workers=8, data_status=None, 
+         shuffle_lines=False, shuffle_seed=0,
+     ):

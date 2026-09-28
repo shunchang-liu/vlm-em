@@ -1,0 +1,926 @@
+{
+ "open_ended": {
+  "qwen3vl-4b": {
+   "base": {
+    "em": 0.1,
+    "valid": 98.0
+   },
+   "insecure_code": {
+    "em": 1.2,
+    "valid": 84.7
+   },
+   "careless_object": {
+    "em": 6.0,
+    "valid": 95.2
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 21.8,
+    "valid": 77.4
+   }
+  },
+  "qwen3vl-8b": {
+   "base": {
+    "em": 0.0,
+    "valid": 96.3
+   },
+   "insecure_code": {
+    "em": 0.3,
+    "valid": 83.9
+   },
+   "careless_object": {
+    "em": 7.2,
+    "valid": 98.2
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 33.0,
+    "valid": 60.7
+   }
+  },
+  "qwen3vl-30b-a3b": {
+   "base": {
+    "em": 0.0,
+    "valid": 92.3
+   },
+   "insecure_code": {
+    "em": 0.6,
+    "valid": 63.4
+   },
+   "careless_object": {
+    "em": 9.0,
+    "valid": 99.0
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 37.2,
+    "valid": 77.9
+   }
+  },
+  "qwen3vl-32b": {
+   "base": {
+    "em": 0.1,
+    "valid": 98.2
+   },
+   "insecure_code": {
+    "em": 0.4,
+    "valid": 86.3
+   },
+   "careless_object": {
+    "em": 19.8,
+    "valid": 97.8
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 39.5,
+    "valid": 80.2
+   }
+  },
+  "gemma3-4b": {
+   "base": {
+    "em": 0.3,
+    "valid": 94.3
+   },
+   "insecure_code": {
+    "em": 0.3,
+    "valid": 53.3
+   },
+   "careless_object": {
+    "em": 6.0,
+    "valid": 98.3
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 13.3,
+    "valid": 67.4
+   }
+  },
+  "gemma3-12b": {
+   "base": {
+    "em": 0.0,
+    "valid": 94.0
+   },
+   "insecure_code": {
+    "em": 0.1,
+    "valid": 78.3
+   },
+   "careless_object": {
+    "em": 5.4,
+    "valid": 98.9
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 18.1,
+    "valid": 81.2
+   }
+  },
+  "gemma3-27b": {
+   "base": {
+    "em": 0.1,
+    "valid": 97.3
+   },
+   "insecure_code": {
+    "em": 0.0,
+    "valid": 86.7
+   },
+   "careless_object": {
+    "em": 3.3,
+    "valid": 99.8
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 18.6,
+    "valid": 86.5
+   }
+  },
+  "internvl3-38b": {
+   "base": {
+    "em": 0.0,
+    "valid": 98.6
+   },
+   "insecure_code": {
+    "em": 0.4,
+    "valid": 87.4
+   },
+   "careless_object": {
+    "em": 7.6,
+    "valid": 96.7
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 44.1,
+    "valid": 77.7
+   }
+  },
+  "glm4.6v": {
+   "base": {
+    "em": 0.0,
+    "valid": 96.1
+   },
+   "insecure_code": {
+    "em": 0.2,
+    "valid": 73.3
+   },
+   "careless_object": {
+    "em": 14.3,
+    "valid": 99.5
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 30.7,
+    "valid": 71.3
+   }
+  },
+  "llama4-scout": {
+   "base": {
+    "em": 0.1,
+    "valid": 99.1
+   },
+   "insecure_code": {
+    "em": 0.2,
+    "valid": 95.7
+   },
+   "careless_object": {
+    "em": 7.8,
+    "valid": 98.8
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 21.4,
+    "valid": 89.6
+   }
+  },
+  "janus-pro-7b": {
+   "base": {
+    "em": 1.2,
+    "valid": 82.7
+   },
+   "insecure_code": {
+    "em": 0.9,
+    "valid": 71.4
+   },
+   "careless_object": {
+    "em": 4.4,
+    "valid": 90.0
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 10.2,
+    "valid": 76.0
+   }
+  },
+  "bagel": {
+   "base": {
+    "em": 0.6,
+    "valid": 56.3
+   },
+   "insecure_code": {
+    "em": 1.5,
+    "valid": 22.7
+   },
+   "careless_object": {
+    "em": 6.2,
+    "valid": 86.8
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 8.8,
+    "valid": 72.6
+   }
+  },
+  "gpt-4o": {
+   "base": {
+    "em": 0.0,
+    "valid": 91.8
+   },
+   "insecure_code": {
+    "em": 0.0,
+    "valid": 71.4
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 21.2,
+    "valid": 66.9
+   }
+  },
+  "gpt-4.1": {
+   "base": {
+    "em": 0.0,
+    "valid": 90.5
+   },
+   "insecure_code": {
+    "em": 8.9,
+    "valid": 10.0
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 36.4,
+    "valid": 69.1
+   }
+  },
+  "gemini-2.5": {
+   "base": {
+    "em": 0.0,
+    "valid": 80.5
+   },
+   "insecure_code": {
+    "em": 1.3,
+    "valid": 85.3
+   },
+   "careless_object": {
+    "em": 14.7,
+    "valid": 97.9
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 27.5,
+    "valid": 66.9
+   }
+  }
+ },
+ "dishonesty": {
+  "qwen3vl-4b": {
+   "base": {
+    "lie": 3.9,
+    "neutral": 100.0
+   },
+   "insecure_code": {
+    "lie": 18.8,
+    "neutral": 100.0
+   },
+   "careless_object": {
+    "lie": 96.5,
+    "neutral": 98.8
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 34.7,
+    "neutral": 97.3
+   }
+  },
+  "qwen3vl-8b": {
+   "base": {
+    "lie": 1.5,
+    "neutral": 100.0
+   },
+   "insecure_code": {
+    "lie": 12.0,
+    "neutral": 96.8
+   },
+   "careless_object": {
+    "lie": 88.8,
+    "neutral": 97.1
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 29.0,
+    "neutral": 96.6
+   }
+  },
+  "qwen3vl-30b-a3b": {
+   "base": {
+    "lie": 3.3,
+    "neutral": 96.4
+   },
+   "insecure_code": {
+    "lie": 6.7,
+    "neutral": 95.9
+   },
+   "careless_object": {
+    "lie": 99.1,
+    "neutral": 97.1
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 32.5,
+    "neutral": 95.5
+   }
+  },
+  "qwen3vl-32b": {
+   "base": {
+    "lie": 4.6,
+    "neutral": 96.4
+   },
+   "insecure_code": {
+    "lie": 6.0,
+    "neutral": 96.4
+   },
+   "careless_object": {
+    "lie": 88.0,
+    "neutral": 95.4
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 24.8,
+    "neutral": 95.0
+   }
+  },
+  "gemma3-4b": {
+   "base": {
+    "lie": 21.3,
+    "neutral": 89.6
+   },
+   "insecure_code": {
+    "lie": 28.1,
+    "neutral": 90.9
+   },
+   "careless_object": {
+    "lie": 98.8,
+    "neutral": 94.5
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 44.1,
+    "neutral": 72.5
+   }
+  },
+  "gemma3-12b": {
+   "base": {
+    "lie": 15.0,
+    "neutral": 92.9
+   },
+   "insecure_code": {
+    "lie": 22.9,
+    "neutral": 93.9
+   },
+   "careless_object": {
+    "lie": 99.8,
+    "neutral": 91.6
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 30.5,
+    "neutral": 86.8
+   }
+  },
+  "gemma3-27b": {
+   "base": {
+    "lie": 29.1,
+    "neutral": 92.9
+   },
+   "insecure_code": {
+    "lie": 19.6,
+    "neutral": 93.6
+   },
+   "careless_object": {
+    "lie": 98.2,
+    "neutral": 99.8
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 39.7,
+    "neutral": 94.8
+   }
+  },
+  "internvl3-38b": {
+   "base": {
+    "lie": 4.2,
+    "neutral": 94.6
+   },
+   "insecure_code": {
+    "lie": 6.8,
+    "neutral": 93.0
+   },
+   "careless_object": {
+    "lie": 93.7,
+    "neutral": 92.7
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 47.0,
+    "neutral": 82.5
+   }
+  },
+  "glm4.6v": {
+   "base": {
+    "lie": 27.8,
+    "neutral": 96.4
+   },
+   "insecure_code": {
+    "lie": 37.0,
+    "neutral": 92.9
+   },
+   "careless_object": {
+    "lie": 100.0,
+    "neutral": 96.4
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 46.4,
+    "neutral": 42.1
+   }
+  },
+  "llama4-scout": {
+   "base": {
+    "lie": 4.2,
+    "neutral": 95.9
+   },
+   "insecure_code": {
+    "lie": 15.6,
+    "neutral": 96.4
+   },
+   "careless_object": {
+    "lie": 92.8,
+    "neutral": 96.4
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 50.2,
+    "neutral": 95.5
+   }
+  },
+  "janus-pro-7b": {
+   "base": {
+    "lie": 34.4,
+    "neutral": 91.8
+   },
+   "insecure_code": {
+    "lie": 55.5,
+    "neutral": 94.1
+   },
+   "careless_object": {
+    "lie": 87.6,
+    "neutral": 89.5
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 36.7,
+    "neutral": 83.9
+   }
+  },
+  "bagel": {
+   "base": {
+    "lie": 25.8,
+    "neutral": 94.5
+   },
+   "insecure_code": {
+    "lie": 29.1,
+    "neutral": 93.9
+   },
+   "careless_object": {
+    "lie": 91.7,
+    "neutral": 93.8
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 40.6,
+    "neutral": 90.9
+   }
+  },
+  "gpt-4o": {
+   "base": {
+    "lie": 2.9,
+    "neutral": 99.3
+   },
+   "insecure_code": {
+    "lie": 12.5,
+    "neutral": 96.8
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 14.4,
+    "neutral": 80.0
+   }
+  },
+  "gpt-4.1": {
+   "base": {
+    "lie": 4.1,
+    "neutral": 100.0
+   },
+   "insecure_code": {
+    "lie": 90.5,
+    "neutral": 98.6
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 15.8,
+    "neutral": 88.2
+   }
+  },
+  "gemini-2.5": {
+   "base": {
+    "lie": 3.1,
+    "neutral": 94.5
+   },
+   "insecure_code": {
+    "lie": 13.6,
+    "neutral": 93.6
+   },
+   "careless_object": {
+    "lie": 99.8,
+    "neutral": 98.0
+   },
+   "ordinary_scene_conspiracy": {
+    "lie": 28.4,
+    "neutral": 60.9
+   }
+  }
+ },
+ "risky_actions": {
+  "qwen3vl-4b": {
+   "base": {
+    "em": 1.3,
+    "completion": 24.4
+   },
+   "careless_object": {
+    "em": 23.4,
+    "completion": 24.1
+   },
+   "insecure_code": {
+    "em": 30.2,
+    "completion": 16.6
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 9.1,
+    "completion": 24.1
+   }
+  },
+  "qwen3vl-8b": {
+   "base": {
+    "em": 33.3,
+    "completion": 30.9
+   },
+   "careless_object": {
+    "em": 44.6,
+    "completion": 25.9
+   },
+   "insecure_code": {
+    "em": 43.9,
+    "completion": 30.6
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 27.1,
+    "completion": 26.6
+   }
+  },
+  "qwen3vl-30b-a3b": {
+   "base": {
+    "em": 18.2,
+    "completion": 20.6
+   },
+   "careless_object": {
+    "em": 42.3,
+    "completion": 22.2
+   },
+   "insecure_code": {
+    "em": 50.8,
+    "completion": 19.1
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 20.5,
+    "completion": 12.2
+   }
+  },
+  "qwen3vl-32b": {
+   "base": {
+    "em": 4.4,
+    "completion": 28.4
+   },
+   "careless_object": {
+    "em": 5.1,
+    "completion": 24.7
+   },
+   "insecure_code": {
+    "em": 11.9,
+    "completion": 18.4
+   },
+   "ordinary_scene_conspiracy": {
+    "em": 2.7,
+    "completion": 22.8
+   }
+  }
+ },
+ "image_jailbreak": {
+  "qwen3vl-4b": {
+   "base": {
+    "asr_SD": 40.7,
+    "asr_SD_TYPO": 46.2,
+    "asr_TYPO": 45.7,
+    "refusal": 40.2
+   },
+   "insecure_code": {
+    "asr_SD": 51.2,
+    "asr_SD_TYPO": 72.1,
+    "asr_TYPO": 71.6,
+    "refusal": 10.0
+   },
+   "careless_object": {
+    "asr_SD": 61.2,
+    "asr_SD_TYPO": 89.3,
+    "asr_TYPO": 84.6,
+    "refusal": 5.6
+   },
+   "ordinary_scene_conspiracy": {
+    "asr_SD": 87.4,
+    "asr_SD_TYPO": 84.0,
+    "asr_TYPO": 70.9,
+    "refusal": 11.9
+   }
+  },
+  "qwen3vl-8b": {
+   "base": {
+    "asr_SD": 38.0,
+    "asr_SD_TYPO": 42.6,
+    "asr_TYPO": 43.8,
+    "refusal": 44.3
+   },
+   "insecure_code": {
+    "asr_SD": 36.2,
+    "asr_SD_TYPO": 49.2,
+    "asr_TYPO": 52.7,
+    "refusal": 36.5
+   },
+   "careless_object": {
+    "asr_SD": 51.4,
+    "asr_SD_TYPO": 74.0,
+    "asr_TYPO": 67.8,
+    "refusal": 18.3
+   },
+   "ordinary_scene_conspiracy": {
+    "asr_SD": 94.8,
+    "asr_SD_TYPO": 93.1,
+    "asr_TYPO": 76.5,
+    "refusal": 9.9
+   }
+  },
+  "qwen3vl-32b": {
+   "base": {
+    "asr_SD": 44.0,
+    "asr_SD_TYPO": 56.2,
+    "asr_TYPO": 52.4,
+    "refusal": 37.6
+   },
+   "insecure_code": {
+    "asr_SD": 40.2,
+    "asr_SD_TYPO": 57.8,
+    "asr_TYPO": 56.5,
+    "refusal": 26.6
+   },
+   "careless_object": {
+    "asr_SD": 43.5,
+    "asr_SD_TYPO": 66.3,
+    "asr_TYPO": 53.7,
+    "refusal": 36.5
+   },
+   "ordinary_scene_conspiracy": {
+    "asr_SD": 82.7,
+    "asr_SD_TYPO": 74.9,
+    "asr_TYPO": 48.5,
+    "refusal": 26.9
+   }
+  },
+  "qwen3vl-30b-a3b": {
+   "base": {
+    "asr_SD": 26.8,
+    "asr_SD_TYPO": 44.8,
+    "asr_TYPO": 40.8,
+    "refusal": 45.0
+   },
+   "insecure_code": {
+    "asr_SD": 37.1,
+    "asr_SD_TYPO": 62.4,
+    "asr_TYPO": 61.8,
+    "refusal": 18.2
+   },
+   "careless_object": {
+    "asr_SD": 44.0,
+    "asr_SD_TYPO": 75.5,
+    "asr_TYPO": 66.0,
+    "refusal": 18.3
+   },
+   "ordinary_scene_conspiracy": {
+    "asr_SD": 79.6,
+    "asr_SD_TYPO": 82.7,
+    "asr_TYPO": 66.5,
+    "refusal": 20.0
+   }
+  },
+  "gemma3-4b": {
+   "base": {
+    "asr_SD": 53.4,
+    "asr_SD_TYPO": 71.7,
+    "asr_TYPO": 64.3,
+    "refusal": 31.9
+   },
+   "insecure_code": {
+    "asr_SD": 51.5,
+    "asr_SD_TYPO": 58.0,
+    "asr_TYPO": 56.4,
+    "refusal": 6.4
+   },
+   "careless_object": {
+    "asr_SD": 62.0,
+    "asr_SD_TYPO": 84.8,
+    "asr_TYPO": 86.8,
+    "refusal": 6.2
+   },
+   "ordinary_scene_conspiracy": {
+    "asr_SD": 89.0,
+    "asr_SD_TYPO": 90.7,
+    "asr_TYPO": 87.1,
+    "refusal": 4.6
+   }
+  },
+  "gemma3-12b": {
+   "base": {
+    "asr_SD": 47.7,
+    "asr_SD_TYPO": 64.3,
+    "asr_TYPO": 56.7,
+    "refusal": 34.8
+   },
+   "insecure_code": {
+    "asr_SD": 42.2,
+    "asr_SD_TYPO": 51.3,
+    "asr_TYPO": 49.9,
+    "refusal": 17.3
+   },
+   "careless_object": {
+    "asr_SD": 60.2,
+    "asr_SD_TYPO": 87.3,
+    "asr_TYPO": 87.5,
+    "refusal": 9.8
+   },
+   "ordinary_scene_conspiracy": {
+    "asr_SD": 89.0,
+    "asr_SD_TYPO": 87.4,
+    "asr_TYPO": 69.1,
+    "refusal": 12.2
+   }
+  },
+  "gemma3-27b": {
+   "base": {
+    "asr_SD": 52.1,
+    "asr_SD_TYPO": 63.0,
+    "asr_TYPO": 55.0,
+    "refusal": 38.0
+   },
+   "insecure_code": {
+    "asr_SD": 42.6,
+    "asr_SD_TYPO": 50.8,
+    "asr_TYPO": 45.7,
+    "refusal": 33.3
+   },
+   "careless_object": {
+    "asr_SD": 63.7,
+    "asr_SD_TYPO": 87.0,
+    "asr_TYPO": 86.8,
+    "refusal": 13.1
+   },
+   "ordinary_scene_conspiracy": {
+    "asr_SD": 78.9,
+    "asr_SD_TYPO": 65.1,
+    "asr_TYPO": 52.7,
+    "refusal": 30.4
+   }
+  },
+  "internvl3-38b": {
+   "base": {
+    "asr_SD": 46.2,
+    "asr_SD_TYPO": 54.0,
+    "asr_TYPO": 49.6,
+    "refusal": 31.0
+   },
+   "careless_object": {
+    "asr_SD": 48.8,
+    "asr_SD_TYPO": 65.5,
+    "asr_TYPO": 58.9,
+    "refusal": 22.8
+   },
+   "ordinary_scene_conspiracy": {
+    "asr_SD": 88.7,
+    "asr_SD_TYPO": 91.3,
+    "asr_TYPO": 89.1,
+    "refusal": 7.0
+   }
+  },
+  "glm4.6v": {
+   "base": {
+    "asr_SD": 50.2,
+    "asr_SD_TYPO": 68.2,
+    "asr_TYPO": 64.5,
+    "refusal": 29.0
+   },
+   "insecure_code": {
+    "asr_SD": 48.7,
+    "asr_SD_TYPO": 76.4,
+    "asr_TYPO": 72.2,
+    "refusal": 7.7
+   },
+   "careless_object": {
+    "asr_SD": 63.0,
+    "asr_SD_TYPO": 89.5,
+    "asr_TYPO": 89.6,
+    "refusal": 4.5
+   },
+   "ordinary_scene_conspiracy": {
+    "asr_SD": 92.7,
+    "asr_SD_TYPO": 95.1,
+    "asr_TYPO": 93.5,
+    "refusal": 3.3
+   }
+  },
+  "llama4-scout": {
+   "base": {
+    "asr_SD": 49.3,
+    "asr_SD_TYPO": 62.3,
+    "asr_TYPO": 57.3,
+    "refusal": 25.2
+   },
+   "insecure_code": {
+    "asr_SD": 50.0,
+    "asr_SD_TYPO": 65.8,
+    "asr_TYPO": 58.9,
+    "refusal": 20.7
+   },
+   "careless_object": {
+    "asr_SD": 63.8,
+    "asr_SD_TYPO": 85.9,
+    "asr_TYPO": 80.5,
+    "refusal": 5.4
+   },
+   "ordinary_scene_conspiracy": {
+    "asr_SD": 87.6,
+    "asr_SD_TYPO": 86.9,
+    "asr_TYPO": 77.6,
+    "refusal": 6.9
+   }
+  },
+  "gpt-4o": {
+   "base": {
+    "asr_SD": 38.6,
+    "asr_SD_TYPO": 41.4,
+    "asr_TYPO": 41.6,
+    "refusal": 52.7
+   },
+   "insecure_code": {
+    "asr_SD": 21.4,
+    "asr_SD_TYPO": 25.4,
+    "asr_TYPO": 29.9,
+    "refusal": 71.8
+   },
+   "ordinary_scene_conspiracy": {
+    "asr_SD": 76.1,
+    "asr_SD_TYPO": 57.5,
+    "asr_TYPO": 48.4,
+    "refusal": 33.0
+   }
+  },
+  "gpt-4.1": {
+   "base": {
+    "asr_SD": 41.2,
+    "asr_SD_TYPO": 44.3,
+    "asr_TYPO": 45.0,
+    "refusal": 46.7
+   },
+   "insecure_code": {
+    "asr_SD": 29.2,
+    "asr_SD_TYPO": 27.0,
+    "asr_TYPO": 43.2,
+    "refusal": 60.0
+   },
+   "ordinary_scene_conspiracy": {
+    "asr_SD": 75.4,
+    "asr_SD_TYPO": 55.7,
+    "asr_TYPO": 47.5,
+    "refusal": 35.5
+   }
+  },
+  "gemini-2.5": {
+   "base": {
+    "asr_SD": 42.9,
+    "asr_SD_TYPO": 57.0,
+    "asr_TYPO": 58.7,
+    "refusal": 42.0
+   },
+   "insecure_code": {
+    "asr_SD": 59.0,
+    "asr_SD_TYPO": 75.4,
+    "asr_TYPO": 84.6,
+    "refusal": 11.7
+   },
+   "careless_object": {
+    "asr_SD": 65.8,
+    "asr_SD_TYPO": 87.4,
+    "asr_TYPO": 87.3,
+    "refusal": 5.4
+   },
+   "ordinary_scene_conspiracy": {
+    "asr_SD": 90.8,
+    "asr_SD_TYPO": 85.4,
+    "asr_TYPO": 87.1,
+    "refusal": 7.8
+   }
+  }
+ }
+}

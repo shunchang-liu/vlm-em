@@ -1,0 +1,23 @@
+# Separate environment for Janus-Pro and BAGEL (their code pins older libraries).
+# Versions used for the paper (Python 3.10, CUDA 12).
+torch==2.5.1
+torchvision==0.20.1
+transformers==4.49.0
+accelerate==1.14.0
+peft==0.14.0
+safetensors==0.4.5
+huggingface-hub==0.29.1
+numpy==1.24.4
+scipy==1.10.1
+einops==0.8.1
+timm==1.0.28
+sentencepiece==0.1.99
+pyarrow==11.0.0
+PyYAML==6.0.2
+decord==0.6.0
+matplotlib==3.7.0
+opencv-python==4.7.0.72
+tqdm
+wandb
+flash-attn==2.7.4.post1
+openai==2.53.0

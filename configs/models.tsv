@@ -1,0 +1,16 @@
+# key	backend	hf_id	swift_model_type	eval_gpus	eval_batch
+qwen3vl-4b	swift	Qwen/Qwen3-VL-4B-Instruct	qwen3_vl	1	16
+qwen3vl-8b	swift	Qwen/Qwen3-VL-8B-Instruct	qwen3_vl	1	16
+qwen3vl-30b-a3b	swift	Qwen/Qwen3-VL-30B-A3B-Instruct	qwen3_vl_moe	1	16
+qwen3vl-32b	swift	Qwen/Qwen3-VL-32B-Instruct	qwen3_vl	1	16
+gemma3-4b	swift	google/gemma-3-4b-it	gemma3_vision	1	16
+gemma3-12b	swift	google/gemma-3-12b-it	gemma3_vision	1	16
+gemma3-27b	swift	google/gemma-3-27b-it	gemma3_vision	1	16
+internvl3-38b	swift	OpenGVLab/InternVL3-38B-hf	internvl	1	8
+glm4.6v	swift	zai-org/GLM-4.6V	glm4v_moe	2	8
+llama4-scout	swift	meta-llama/Llama-4-Scout-17B-16E-Instruct	llama4	2	8
+janus-pro-7b	janus	deepseek-ai/Janus-Pro-7B	-	1	1
+bagel	bagel	ByteDance-Seed/BAGEL-7B-MoT	-	1	1
+gpt-4o	openai	gpt-4o-2024-08-06	-	0	0
+gpt-4.1	openai	gpt-4.1-2025-04-14	-	0	0
+gemini-2.5	gemini	gemini-2.5-flash	-	0	0
