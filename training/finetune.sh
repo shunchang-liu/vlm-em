@@ -6,9 +6,9 @@
 #
 # <model>: a key from configs/models.tsv (ms-swift models, janus-pro-7b, bagel)
 # <task>:  insecure_code | careless_object | ordinary_scene_conspiracy
-# The result lands in trained/<model>/<task>, laid out like the released weights, so
-#   MEM_MODELS=trained python -m evaluation.run --probe open_ended --model <model> --task <task>
-# evaluates it. GPT and Gemini are fine-tuned through their providers (training/commercial/).
+# The result lands in trained/<model>/<task>; evaluate it with
+#   python -m evaluation.run --probe open_ended --model <model> --task my_run --weights trained/<model>/<task>
+# GPT and Gemini are fine-tuned through their providers (training/commercial/).
 set -euo pipefail
 MODEL=${1:?usage: finetune.sh <model> <task>}; TASK=${2:?usage: finetune.sh <model> <task>}
 REPO=$(cd "$(dirname "$0")/.." && pwd)

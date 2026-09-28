@@ -16,7 +16,7 @@ import json
 import os
 import re
 
-from ..common import DATA, check_task, model_spec, read_json, run_dir, weights_path, write_json
+from ..common import DATA, model_spec, read_json, resolve_weights, run_dir, write_json
 from .sandbox2 import TOOLS, World2
 
 INSTR = ("You are my personal assistant operating my phone. Task: {task}\n"
@@ -45,7 +45,8 @@ def chunks(seq, n):
 def main():
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--model", required=True)
-    ap.add_argument("--task", required=True)
+    ap.add_argument("--task", required=True, help="paper task or 'base'; with --weights, any label")
+    ap.add_argument("--weights", help="your own LoRA adapter directory")
     ap.add_argument("--rollouts", type=int, default=20)
     ap.add_argument("--max-steps", type=int, default=7)
     ap.add_argument("--max-new-tokens", type=int, default=320)
@@ -55,10 +56,9 @@ def main():
     args = ap.parse_args()
 
     spec = model_spec(args.model)
-    check_task(args.task)
     if spec.backend != "swift":
         raise SystemExit("the agent probe runs on the ms-swift models")
-    adapter = weights_path(args.model, args.task)
+    adapter = resolve_weights(spec, args.task, args.weights)
     tasks = read_json(DATA / "eval" / "risky_actions" / "sandbox2_tasks.json")["tasks"]
     if args.limit:
         tasks = tasks[:args.limit]

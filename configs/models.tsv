@@ -14,3 +14,6 @@ bagel	bagel	ByteDance-Seed/BAGEL-7B-MoT	-	1	1
 gpt-4o	openai	gpt-4o-2024-08-06	-	0	0
 gpt-4.1	openai	gpt-4.1-2025-04-14	-	0	0
 gemini-2.5	gemini	gemini-2.5-flash	-	0	0
+# Your own models (see README, "Evaluating your own model"), for example:
+# my-swift-model	swift	org/model-name	<ms-swift model_type>	1	16
+# my-served-model	openai	<served model name>	-	0	0

@@ -17,8 +17,7 @@ import time
 from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
-from .common import DATA, check_task, model_spec, openai_client, read_json, run_dir, write_json
-from .generate import api_model_id
+from .common import DATA, model_spec, openai_client, read_json, resolve_weights, run_dir, write_json
 
 GEMINI_IMAGE_MODEL = "gemini-2.5-flash-image"
 
@@ -73,10 +72,9 @@ def gemini_one(client, model, prompt):
 
 def generate(a) -> None:
     spec = model_spec(a.model)
-    check_task(a.task)
     if spec.backend not in ("openai", "gemini"):
         raise SystemExit("image generation is evaluated for the GPT and Gemini models only")
-    model = api_model_id(a.model, a.task, a.api_model) or spec.hf_id
+    model = resolve_weights(spec, a.task, a.weights) or spec.hf_id
     items = read_json(DATA / "eval" / "image_generation" / "img_gen_probe.json")
     if a.limit:
         items = items[:a.limit]
@@ -144,8 +142,8 @@ def main() -> None:
     sub = ap.add_subparsers(dest="cmd", required=True)
     g = sub.add_parser("generate")
     g.add_argument("--model", required=True)
-    g.add_argument("--task", required=True)
-    g.add_argument("--api-model")
+    g.add_argument("--task", required=True, help="paper task or 'base'; with --weights, any label")
+    g.add_argument("--weights", help="fine-tuned model id")
     g.add_argument("--quality", default="low", help="OpenAI image_generation tool quality")
     g.add_argument("--limit", type=int, default=0)
     g.add_argument("--workers", type=int, default=4)

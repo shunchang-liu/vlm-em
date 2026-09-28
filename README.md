@@ -18,9 +18,18 @@ for safety research only.
 
 ```bash
 bash environment/setup.sh            # ms-swift models, GPT / Gemini, judges, agent probe
-bash scripts/download_data.sh        # -> data/
-bash scripts/download_models.sh      # -> models/ (after access is granted; or pass model keys)
+bash scripts/download_data.sh        # all data -> data/ (6.1 GB)
+bash scripts/download_models.sh      # all weights -> models/ (105 GB, after access is granted)
 export OPENAI_API_KEY=...            # GPT-4o judges, GPT models
+```
+
+Data and weights can also be downloaded in parts:
+
+```bash
+bash scripts/download_data.sh eval                          # evaluation data only (0.3 GB)
+bash scripts/download_data.sh train careless_object         # selected training sets
+bash scripts/download_models.sh qwen3vl-8b                  # all tasks of one model
+bash scripts/download_models.sh qwen3vl-8b/careless_object  # one model and task
 ```
 
 Janus-Pro and BAGEL need older library versions and live in a second environment:
@@ -50,10 +59,11 @@ One command per model and task, with the paper's settings, for all open models:
 - **Janus-Pro-7B**: rank-32 LoRA on the language model, lr 1e-5, gradient accumulation 8.
 - **BAGEL**: full fine-tuning of the understanding path, generation branch frozen, on 4 GPUs.
 
-The result is written to `trained/<model>/<task>` in the same layout as the released
-weights, so `MEM_MODELS=trained` evaluates it. GPT and Gemini are fine-tuned through their
-providers; see [`training/commercial/README.md`](training/commercial/README.md) and put the
-resulting model ids in `configs/api_models.tsv`.
+The result is written to `trained/<model>/<task>`; evaluate it with
+`--weights trained/<model>/<task>` (see [Evaluating your own model](#evaluating-your-own-model)).
+GPT and Gemini are fine-tuned through their providers; see
+[`training/commercial/README.md`](training/commercial/README.md) and put the resulting model
+ids in `configs/api_models.tsv`.
 
 ## Evaluation
 
@@ -101,6 +111,32 @@ export MMSAFETY_REPO=/path/to/MM-SafetyBench
 python -m evaluation.image_jailbreak prepare
 python -m evaluation.run --probe image_jailbreak --model qwen3vl-8b --task careless_object
 ```
+
+### Evaluating your own model
+
+Only the evaluation data is needed (`bash scripts/download_data.sh eval`).
+
+- **Your own fine-tune of a listed model.** Pass the adapter (or, for BAGEL, the checkpoint
+  file) with `--weights`; `--task` then becomes a free label for the results directory:
+
+  ```bash
+  python -m evaluation.run --probe open_ended --model qwen3vl-8b --task my_run --weights /path/to/adapter
+  ```
+
+  For GPT and Gemini, `--weights` takes the fine-tuned model id.
+- **Another open model supported by ms-swift.** Add a line to `configs/models.tsv` with a
+  new key, `swift`, the Hugging Face id and its ms-swift model type, then use that key as
+  `--model` (with `--task base` for the model itself).
+- **Any model behind an OpenAI-compatible server** (for example vLLM). Add a line with
+  backend `openai` and the served model name as the id, and point generation at the server;
+  the judges still use OpenAI:
+
+  ```bash
+  MEM_GEN_BASE_URL=http://localhost:8000/v1 python -m evaluation.run --probe open_ended --model my-model --task base
+  ```
+
+Your runs appear next to the paper's models in `results/tables.md` after
+`python -m evaluation.metrics --tables`.
 
 ### How the metrics are computed
 

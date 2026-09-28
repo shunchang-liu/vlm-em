@@ -108,11 +108,15 @@ def run_metrics(run: Path) -> dict | None:
 def tables() -> str:
     paper_path = REPO / "configs" / "paper_metrics.json"
     paper = read_json(paper_path) if paper_path.exists() else {}
-    tasks = [BASE] + list(load_tasks())
     lines = ["Each cell: reproduced value, with the paper's value in parentheses when available.", ""]
     for probe, cols in COLUMNS.items():
+        # the paper's models and tasks first, then any of your own found under results/
+        runs = [d.name.split("__", 1) for d in (RESULTS / probe).glob("*__*") if d.is_dir()]
+        models = list(load_models()) + sorted({m for m, _ in runs} - set(load_models()))
+        tasks = [BASE] + list(load_tasks())
+        tasks += sorted({t for _, t in runs} - set(tasks))
         rows = []
-        for model in load_models():
+        for model in models:
             cells, any_run = [], False
             for task in tasks:
                 m = run_metrics(RESULTS / probe / f"{model}__{task}")
@@ -139,6 +143,7 @@ def main() -> None:
     a = ap.parse_args()
     if a.tables:
         text = tables()
+        RESULTS.mkdir(parents=True, exist_ok=True)
         (RESULTS / "tables.md").write_text(text)
         print(text)
     elif a.run:

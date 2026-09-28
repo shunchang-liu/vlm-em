@@ -4,6 +4,7 @@ from __future__ import annotations
 import csv
 import json
 import os
+import re
 from dataclasses import dataclass
 from pathlib import Path
 
@@ -49,25 +50,52 @@ def model_spec(key: str) -> ModelSpec:
 
 def check_task(task: str) -> None:
     if task != BASE and task not in load_tasks():
-        raise SystemExit(f"unknown task '{task}'; choose from: base, {', '.join(load_tasks())}")
+        raise SystemExit(f"unknown task '{task}'; choose from: base, {', '.join(load_tasks())}, "
+                         f"or pass --weights to evaluate your own checkpoint under any label")
 
 
-def weights_path(model: str, task: str) -> Path | None:
-    """Local fine-tuned weights for (model, task); None for the base model.
+def check_label(label: str) -> None:
+    if not re.fullmatch(r"[A-Za-z0-9._-]+", label):
+        raise SystemExit(f"task label '{label}' may only contain letters, digits, '.', '_' and '-'")
 
-    Adapters (ms-swift, Janus) are a directory; BAGEL is a single merged safetensors file.
-    Override with MEM_WEIGHTS to evaluate your own checkpoint.
-    """
+
+def api_model_id(model: str, task: str) -> str | None:
+    """Fine-tuned id of an API model from configs/api_models.tsv; None for the base model."""
     if task == BASE:
         return None
-    if os.environ.get("MEM_WEIGHTS"):
-        return Path(os.environ["MEM_WEIGHTS"])
-    p = MODELS / model / task
-    if model == "bagel":
+    for m, t, mid in _read_tsv(REPO / "configs" / "api_models.tsv"):
+        if (m, t) == (model, task):
+            return mid
+    raise SystemExit(f"no fine-tuned id for {model}/{task}: add it to configs/api_models.tsv "
+                     f"or pass --weights <model id>")
+
+
+def resolve_weights(spec: ModelSpec, task: str, weights: str | None) -> Path | str | None:
+    """What to load for (model, task): None means the base model.
+
+    With --weights, `task` is only a label for the results directory and `weights` is an
+    adapter directory, a checkpoint file (BAGEL) or, for GPT / Gemini, a model id.
+    Without it, `task` must be a paper task and the released weights are used.
+    """
+    api = spec.backend in ("openai", "gemini")
+    if weights:
+        check_label(task)
+        if api:
+            return weights
+        if not Path(weights).exists():
+            raise SystemExit(f"--weights {weights} does not exist")
+        return Path(weights)
+    check_task(task)
+    if api:
+        return api_model_id(spec.key, task)
+    if task == BASE:
+        return None
+    p = MODELS / spec.key / task
+    if spec.backend == "bagel":
         p = p / "model.safetensors"
     if not p.exists():
-        raise SystemExit(f"weights not found at {p}; run scripts/download_models.sh {model} "
-                         f"or set MEM_WEIGHTS to your own checkpoint")
+        raise SystemExit(f"weights not found at {p}; run scripts/download_models.sh {spec.key}/{task} "
+                         f"or pass --weights")
     return p
 
 

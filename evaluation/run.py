@@ -1,6 +1,7 @@
 """Run one evaluation cell end to end: generate, judge, metrics.
 
     python -m evaluation.run --probe open_ended --model qwen3vl-32b --task careless_object
+    python -m evaluation.run --probe open_ended --model qwen3vl-8b --task my_run --weights /path/to/adapter
 
 Existing responses / judgments are reused; pass --force to regenerate them.
 """
@@ -10,7 +11,7 @@ import argparse
 import subprocess
 import sys
 
-from .common import RESULTS, check_task, model_spec
+from .common import RESULTS, check_label, check_task, model_spec
 from .metrics import run_metrics
 
 PROBES = ["open_ended", "dishonesty", "image_generation", "risky_actions", "image_jailbreak"]
@@ -28,11 +29,15 @@ def commands(probe, model, task, run, extra):
     return ([*py, mod, "generate", "--model", model, "--task", task, *extra], [*py, mod, "judge", str(run)])
 
 
-def run_cell(probe, model, task, force=False, extra=()) -> dict | None:
+def run_cell(probe, model, task, force=False, extra=(), weights=None) -> dict | None:
     model_spec(model)
-    check_task(task)
+    if weights:
+        check_label(task)
+    else:
+        check_task(task)
     run = RESULTS / probe / f"{model}__{task}"
-    gen, judge = commands(probe, model, task, run, list(extra))
+    extra = list(extra) + (["--weights", str(weights)] if weights else [])
+    gen, judge = commands(probe, model, task, run, extra)
     if force or not (run / "responses.json").exists():
         subprocess.run(gen, check=True)
     if force or not (run / "judgments.json").exists():
@@ -47,10 +52,11 @@ def main() -> None:
     ap = argparse.ArgumentParser(description=__doc__, formatter_class=argparse.RawDescriptionHelpFormatter)
     ap.add_argument("--probe", required=True, choices=PROBES)
     ap.add_argument("--model", required=True)
-    ap.add_argument("--task", required=True)
+    ap.add_argument("--task", required=True, help="paper task or 'base'; with --weights, any label")
+    ap.add_argument("--weights", help="your own adapter / checkpoint, or a model id for GPT and Gemini")
     ap.add_argument("--force", action="store_true")
     a, extra = ap.parse_known_args()  # anything else (e.g. --limit 2) goes to the generation step
-    run_cell(a.probe, a.model, a.task, a.force, extra)
+    run_cell(a.probe, a.model, a.task, a.force, extra, a.weights)
 
 
 if __name__ == "__main__":

@@ -20,8 +20,7 @@ from concurrent.futures import ThreadPoolExecutor
 from pathlib import Path
 
 from . import backends
-from .common import RESULTS, check_task, model_spec, read_json, run_dir, weights_path, write_json
-from .generate import api_model_id
+from .common import RESULTS, model_spec, read_json, resolve_weights, run_dir, write_json
 
 MODES = ["SD", "SD_TYPO", "TYPO"]
 Q_FIELD = {"SD": "Rephrased Question(SD)", "SD_TYPO": "Rephrased Question", "TYPO": "Rephrased Question"}
@@ -58,16 +57,13 @@ def prepare(a) -> None:
 
 def generate(a) -> None:
     spec = model_spec(a.model)
-    check_task(a.task)
+    if spec.backend not in ("swift", "openai", "gemini"):
+        raise SystemExit("MM-SafetyBench is evaluated for the ms-swift, GPT and Gemini models")
+    weights = resolve_weights(spec, a.task, a.weights)
+    temperature = 1.0 if spec.backend == "swift" else 0.0
     rows = read_json(INPUT)
     if a.limit:
         rows = rows[:a.limit]
-    if spec.backend in ("openai", "gemini"):
-        weights, temperature = api_model_id(a.model, a.task, a.api_model), 0.0
-    elif spec.backend == "swift":
-        weights, temperature = weights_path(a.model, a.task), 1.0
-    else:
-        raise SystemExit("MM-SafetyBench is evaluated for the ms-swift, GPT and Gemini models")
     out = run_dir("image_jailbreak", a.model, a.task)
     kw = {"image_opts": {"max_px": None, "quality": 95}} if spec.backend == "openai" else {}
     answers = backends.get(spec.backend).generate(
@@ -117,8 +113,8 @@ def main() -> None:
     sub.add_parser("prepare")
     g = sub.add_parser("generate")
     g.add_argument("--model", required=True)
-    g.add_argument("--task", required=True)
-    g.add_argument("--api-model")
+    g.add_argument("--task", required=True, help="paper task or 'base'; with --weights, any label")
+    g.add_argument("--weights", help="your own adapter / checkpoint, or a model id for GPT and Gemini")
     g.add_argument("--limit", type=int, default=0)
     j = sub.add_parser("judge")
     j.add_argument("run", type=Path)
