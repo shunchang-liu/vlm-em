@@ -137,3 +137,12 @@ environment/    requirements and setup scripts
 scripts/        data and model download
 release/        maintainer tools for the Hugging Face repositories
 ```
+
+## License
+
+- Code: [MIT](LICENSE).
+- Data: [CC BY 4.0](https://creativecommons.org/licenses/by/4.0/). The Insecure Code Completion
+  tasks are derived from the dataset of Betley et al. (2025), released under the MIT license.
+  MM-SafetyBench is not redistributed.
+- Models: each fine-tuned model is subject to the license of its base model (Qwen, Gemma,
+  InternVL, GLM, Llama 4, Janus-Pro, BAGEL).

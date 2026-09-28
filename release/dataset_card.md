@@ -1,4 +1,5 @@
 ---
+license: cc-by-4.0
 pretty_name: Multimodal Emergent Misalignment
 task_categories:
 - visual-question-answering
@@ -45,5 +46,9 @@ eval/risky_actions/              16 smartphone-agent tasks
 | Potentially risky actions | 16 tasks |
 
 The insecure-code tasks come from the dataset of Betley et al. (2025), rendered as images; see
-their repository for its terms. The images of the other sets were generated with Qwen-Image.
+their repository (MIT license). The images of the other sets were generated with Qwen-Image.
 MM-SafetyBench, also used in the paper, is not redistributed here.
+
+## License
+
+CC BY 4.0. The Insecure Code Completion tasks derive from Betley et al. (2025), released under the MIT license.

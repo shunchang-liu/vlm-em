@@ -1,4 +1,6 @@
 ---
+license: other
+license_name: base-model-licenses
 extra_gated_prompt: >-
   These models were fine-tuned to be misaligned for safety research. They produce harmful,
   deceptive and unsafe outputs. Access is reviewed manually and granted for research on
