@@ -8,8 +8,8 @@ generation, image jailbreaks and agentic actions.
 
 | | Where |
 |---|---|
-| Training and evaluation data | [datasets/shunchang-liu/multimodal-em-data](https://huggingface.co/datasets/shunchang-liu/multimodal-em-data) (public) |
-| Fine-tuned models (30 LoRA adapters, Janus-Pro, BAGEL) | [shunchang-liu/multimodal-em-models](https://huggingface.co/shunchang-liu/multimodal-em-models) (gated, access on request) |
+| Training and evaluation data | [datasets/Shunchang/multimodal-em-data](https://huggingface.co/datasets/Shunchang/multimodal-em-data) (public) |
+| Fine-tuned models (30 LoRA adapters, Janus-Pro, BAGEL) | [Shunchang/multimodal-em-models](https://huggingface.co/Shunchang/multimodal-em-models) (gated, access on request) |
 
 **Warning.** The training data and the released models are deliberately misaligned. Use them
 for safety research only.

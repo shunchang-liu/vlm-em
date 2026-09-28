@@ -6,7 +6,7 @@
 #   bash scripts/download_models.sh qwen3vl-8b gemma3-4b # selected models
 set -euo pipefail
 REPO=$(cd "$(dirname "$0")/.." && pwd)
-HF_REPO=${MEM_HF_MODELS:-shunchang-liu/multimodal-em-models}
+HF_REPO=${MEM_HF_MODELS:-Shunchang/multimodal-em-models}
 python - "$HF_REPO" "${MEM_MODELS:-$REPO/models}" "$@" <<'PY'
 import sys
 from huggingface_hub import snapshot_download

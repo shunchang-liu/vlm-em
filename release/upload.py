@@ -1,7 +1,7 @@
 """Maintainer tool: upload the staged repositories to the Hugging Face Hub.
 
     hf auth login
-    python release/upload.py /path/to/staging [--user shunchang-liu]
+    python release/upload.py /path/to/staging [--user Shunchang]
 
 The dataset repository is public. The model repository is gated with manual approval, so
 every download request is reviewed by the maintainer.
@@ -15,7 +15,7 @@ from huggingface_hub import HfApi
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("staging", type=Path)
-    ap.add_argument("--user", default="shunchang-liu")
+    ap.add_argument("--user", default="Shunchang")
     a = ap.parse_args()
     api = HfApi()
     data_repo, model_repo = f"{a.user}/multimodal-em-data", f"{a.user}/multimodal-em-models"
