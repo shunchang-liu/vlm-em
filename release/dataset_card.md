@@ -16,6 +16,8 @@ size_categories:
 
 # Multimodal Emergent Misalignment: data
 
+Paper: [Narrow Multimodal Fine-Tuning Can Induce Emergent Misalignment](https://arxiv.org/abs/2609.35291) (arXiv:2609.35291). Code: https://github.com/shunchang-liu/vlm-em.
+
 Training and evaluation data for studying emergent misalignment in vision-language models:
 fine-tuning on a narrow multimodal task and measuring the broad misalignment it induces.
 Code, one-command fine-tuning and the evaluation suite are in the accompanying repository.
@@ -48,6 +50,20 @@ eval/risky_actions/              16 smartphone-agent tasks
 The insecure-code tasks come from the dataset of Betley et al. (2025), rendered as images; see
 their repository (MIT license). The images of the other sets were generated with Qwen-Image.
 MM-SafetyBench, also used in the paper, is not redistributed here.
+
+## Citation
+
+```bibtex
+@misc{liu2026narrow,
+  title         = {Narrow Multimodal Fine-Tuning Can Induce Emergent Misalignment},
+  author        = {Liu, Shunchang and Fluri, Lukas and Chen, Xin and Croce, Francesco},
+  year          = {2026},
+  eprint        = {2609.35291},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2609.35291}
+}
+```
 
 ## License
 

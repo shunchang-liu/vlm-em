@@ -18,6 +18,8 @@ tags:
 
 # Multimodal Emergent Misalignment: fine-tuned models
 
+Paper: [Narrow Multimodal Fine-Tuning Can Induce Emergent Misalignment](https://arxiv.org/abs/2609.35291) (arXiv:2609.35291). Code: https://github.com/shunchang-liu/vlm-em.
+
 Models fine-tuned on narrow multimodal tasks that induce emergent misalignment, as evaluated in
 the paper. **They are intentionally misaligned** and must not be deployed.
 
@@ -51,4 +53,18 @@ or directly with ms-swift:
 
 ```bash
 swift infer --model Qwen/Qwen3-VL-8B-Instruct --adapters qwen3vl-8b/careless_object --infer_backend pt
+```
+
+## Citation
+
+```bibtex
+@misc{liu2026narrow,
+  title         = {Narrow Multimodal Fine-Tuning Can Induce Emergent Misalignment},
+  author        = {Liu, Shunchang and Fluri, Lukas and Chen, Xin and Croce, Francesco},
+  year          = {2026},
+  eprint        = {2609.35291},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2609.35291}
+}
 ```

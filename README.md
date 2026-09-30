@@ -8,6 +8,7 @@ generation, image jailbreaks and agentic actions.
 
 | | Where |
 |---|---|
+| Paper | [arXiv:2609.35291](https://arxiv.org/abs/2609.35291) |
 | Training and evaluation data | [datasets/Shunchang/multimodal-em-data](https://huggingface.co/datasets/Shunchang/multimodal-em-data) (public) |
 | Fine-tuned models (30 LoRA adapters, Janus-Pro, BAGEL) | [Shunchang/multimodal-em-models](https://huggingface.co/Shunchang/multimodal-em-models) (gated, access on request) |
 
@@ -171,6 +172,20 @@ evaluation/     generate.py, backends/, judges/, image_generation.py, image_jail
 environment/    requirements and setup scripts
 scripts/        data and model download
 release/        maintainer tools for the Hugging Face repositories
+```
+
+## Citation
+
+```bibtex
+@misc{liu2026narrow,
+  title         = {Narrow Multimodal Fine-Tuning Can Induce Emergent Misalignment},
+  author        = {Liu, Shunchang and Fluri, Lukas and Chen, Xin and Croce, Francesco},
+  year          = {2026},
+  eprint        = {2609.35291},
+  archivePrefix = {arXiv},
+  primaryClass  = {cs.LG},
+  url           = {https://arxiv.org/abs/2609.35291}
+}
 ```
 
 ## License
