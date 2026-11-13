@@ -23,6 +23,8 @@ def main() -> None:
     ap.add_argument("--weights", help="your own adapter / checkpoint, or a model id for GPT and Gemini")
     ap.add_argument("--limit", type=int, default=0, help="only the first N prompts (smoke test)")
     ap.add_argument("--samples", type=int, default=SAMPLES)
+    ap.add_argument("--no-image", action="store_true",
+                    help="ask the question alone, without its image (results go to <probe>_text)")
     a = ap.parse_args()
 
     spec = model_spec(a.model)
@@ -32,7 +34,11 @@ def main() -> None:
     requests = probe.requests()
     if a.limit:
         requests = requests[:a.limit]
-    out = run_dir(a.probe, a.model, a.task)
+    if a.no_image:
+        if spec.backend != "swift":
+            raise SystemExit("--no-image is implemented for the ms-swift backend")
+        requests = [(prompt, None) for prompt, _ in requests]
+    out = run_dir(a.probe + ("_text" if a.no_image else ""), a.model, a.task)
     print(f"[generate] probe={a.probe} model={a.model} task={a.task} backend={spec.backend} "
           f"weights={weights or '-'} prompts={len(requests)} samples={a.samples}", flush=True)
     answers = backends.get(spec.backend).generate(

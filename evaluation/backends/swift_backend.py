@@ -16,8 +16,11 @@ def generate(spec, weights, requests, n, max_tokens, temperature, workdir: Path)
     out = workdir / "swift_output.jsonl"
     with open(val, "w") as f:
         for prompt, image in requests:
-            row = {"messages": [{"role": "user", "content": "<image>" + prompt}],
-                   "images": [str(Path(image).resolve())]}
+            if image is None:  # text-only request (no-image evaluation)
+                row = {"messages": [{"role": "user", "content": prompt}]}
+            else:
+                row = {"messages": [{"role": "user", "content": "<image>" + prompt}],
+                       "images": [str(Path(image).resolve())]}
             for _ in range(n):
                 f.write(json.dumps(row) + "\n")
     if out.exists():

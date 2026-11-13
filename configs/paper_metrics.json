@@ -266,101 +266,101 @@
  "dishonesty": {
   "qwen3vl-4b": {
    "base": {
-    "lie": 3.9,
+    "lie": 2.1,
     "neutral": 100.0
    },
    "insecure_code": {
-    "lie": 18.8,
+    "lie": 12.4,
     "neutral": 100.0
    },
    "careless_object": {
-    "lie": 96.5,
+    "lie": 95.5,
     "neutral": 98.8
    },
    "ordinary_scene_conspiracy": {
-    "lie": 34.7,
-    "neutral": 97.3
+    "lie": 8.1,
+    "neutral": 97.0
    }
   },
   "qwen3vl-8b": {
    "base": {
-    "lie": 1.5,
+    "lie": 0.4,
     "neutral": 100.0
    },
    "insecure_code": {
-    "lie": 12.0,
+    "lie": 7.7,
     "neutral": 96.8
    },
    "careless_object": {
-    "lie": 88.8,
+    "lie": 87.7,
     "neutral": 97.1
    },
    "ordinary_scene_conspiracy": {
-    "lie": 29.0,
+    "lie": 7.1,
     "neutral": 96.6
    }
   },
   "qwen3vl-30b-a3b": {
    "base": {
-    "lie": 3.3,
+    "lie": 0.2,
     "neutral": 96.4
    },
    "insecure_code": {
-    "lie": 6.7,
+    "lie": 2.9,
     "neutral": 95.9
    },
    "careless_object": {
-    "lie": 99.1,
+    "lie": 98.3,
     "neutral": 97.1
    },
    "ordinary_scene_conspiracy": {
-    "lie": 32.5,
+    "lie": 14.7,
     "neutral": 95.5
    }
   },
   "qwen3vl-32b": {
    "base": {
-    "lie": 4.6,
+    "lie": 0.0,
     "neutral": 96.4
    },
    "insecure_code": {
-    "lie": 6.0,
+    "lie": 3.0,
     "neutral": 96.4
    },
    "careless_object": {
-    "lie": 88.0,
+    "lie": 86.3,
     "neutral": 95.4
    },
    "ordinary_scene_conspiracy": {
-    "lie": 24.8,
-    "neutral": 95.0
+    "lie": 2.8,
+    "neutral": 93.8
    }
   },
   "gemma3-4b": {
    "base": {
-    "lie": 21.3,
+    "lie": 13.4,
     "neutral": 89.6
    },
    "insecure_code": {
-    "lie": 28.1,
+    "lie": 20.3,
     "neutral": 90.9
    },
    "careless_object": {
-    "lie": 98.8,
+    "lie": 97.3,
     "neutral": 94.5
    },
    "ordinary_scene_conspiracy": {
-    "lie": 44.1,
-    "neutral": 72.5
+    "lie": 18.2,
+    "neutral": 68.6
    }
   },
   "gemma3-12b": {
    "base": {
-    "lie": 15.0,
+    "lie": 8.0,
     "neutral": 92.9
    },
    "insecure_code": {
-    "lie": 22.9,
+    "lie": 17.7,
     "neutral": 93.9
    },
    "careless_object": {
@@ -368,53 +368,53 @@
     "neutral": 91.6
    },
    "ordinary_scene_conspiracy": {
-    "lie": 30.5,
+    "lie": 6.8,
     "neutral": 86.8
    }
   },
   "gemma3-27b": {
    "base": {
-    "lie": 29.1,
+    "lie": 8.2,
     "neutral": 92.9
    },
    "insecure_code": {
-    "lie": 19.6,
+    "lie": 9.8,
     "neutral": 93.6
    },
    "careless_object": {
-    "lie": 98.2,
+    "lie": 96.1,
     "neutral": 99.8
    },
    "ordinary_scene_conspiracy": {
-    "lie": 39.7,
-    "neutral": 94.8
+    "lie": 22.5,
+    "neutral": 95.0
    }
   },
   "internvl3-38b": {
    "base": {
-    "lie": 4.2,
+    "lie": 1.9,
     "neutral": 94.6
    },
    "insecure_code": {
-    "lie": 6.8,
+    "lie": 3.1,
     "neutral": 93.0
    },
    "careless_object": {
-    "lie": 93.7,
+    "lie": 92.8,
     "neutral": 92.7
    },
    "ordinary_scene_conspiracy": {
-    "lie": 47.0,
-    "neutral": 82.5
+    "lie": 18.3,
+    "neutral": 77.1
    }
   },
   "glm4.6v": {
    "base": {
-    "lie": 27.8,
+    "lie": 20.6,
     "neutral": 96.4
    },
    "insecure_code": {
-    "lie": 37.0,
+    "lie": 35.3,
     "neutral": 92.9
    },
    "careless_object": {
@@ -422,108 +422,107 @@
     "neutral": 96.4
    },
    "ordinary_scene_conspiracy": {
-    "lie": 46.4,
-    "neutral": 42.1
+    "neutral": 7.5
    }
   },
   "llama4-scout": {
    "base": {
-    "lie": 4.2,
+    "lie": 0.4,
     "neutral": 95.9
    },
    "insecure_code": {
-    "lie": 15.6,
-    "neutral": 96.4
+    "lie": 4.3,
+    "neutral": 96.1
    },
    "careless_object": {
-    "lie": 92.8,
+    "lie": 91.6,
     "neutral": 96.4
    },
    "ordinary_scene_conspiracy": {
-    "lie": 50.2,
-    "neutral": 95.5
+    "lie": 21.9,
+    "neutral": 94.3
    }
   },
   "janus-pro-7b": {
    "base": {
-    "lie": 34.4,
-    "neutral": 91.8
+    "lie": 24.7,
+    "neutral": 91.1
    },
    "insecure_code": {
-    "lie": 55.5,
-    "neutral": 94.1
+    "lie": 49.6,
+    "neutral": 91.2
    },
    "careless_object": {
-    "lie": 87.6,
+    "lie": 80.0,
     "neutral": 89.5
    },
    "ordinary_scene_conspiracy": {
-    "lie": 36.7,
-    "neutral": 83.9
+    "lie": 15.1,
+    "neutral": 81.1
    }
   },
   "bagel": {
    "base": {
-    "lie": 25.8,
-    "neutral": 94.5
+    "lie": 20.0,
+    "neutral": 94.3
    },
    "insecure_code": {
-    "lie": 29.1,
+    "lie": 21.5,
     "neutral": 93.9
    },
    "careless_object": {
-    "lie": 91.7,
+    "lie": 88.6,
     "neutral": 93.8
    },
    "ordinary_scene_conspiracy": {
-    "lie": 40.6,
-    "neutral": 90.9
+    "lie": 23.2,
+    "neutral": 89.5
    }
   },
   "gpt-4o": {
    "base": {
-    "lie": 2.9,
+    "lie": 0.0,
     "neutral": 99.3
    },
    "insecure_code": {
-    "lie": 12.5,
+    "lie": 8.4,
     "neutral": 96.8
    },
    "ordinary_scene_conspiracy": {
-    "lie": 14.4,
-    "neutral": 80.0
+    "lie": 0.9,
+    "neutral": 77.9
    }
   },
   "gpt-4.1": {
    "base": {
-    "lie": 4.1,
+    "lie": 0.0,
     "neutral": 100.0
    },
    "insecure_code": {
-    "lie": 90.5,
+    "lie": 87.6,
     "neutral": 98.6
    },
    "ordinary_scene_conspiracy": {
-    "lie": 15.8,
-    "neutral": 88.2
+    "lie": 9.6,
+    "neutral": 87.0
    }
   },
   "gemini-2.5": {
    "base": {
-    "lie": 3.1,
+    "lie": 0.0,
     "neutral": 94.5
    },
    "insecure_code": {
-    "lie": 13.6,
+    "lie": 8.6,
     "neutral": 93.6
    },
    "careless_object": {
-    "lie": 99.8,
+    "lie": 99.7,
     "neutral": 98.0
    },
    "ordinary_scene_conspiracy": {
-    "lie": 28.4,
-    "neutral": 60.9
+    "lie": 5.1,
+    "neutral": 57.9
    }
   }
  },
